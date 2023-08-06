@@ -32,4 +32,20 @@ class Array {
       return true
     } else return false;
   }
+
+  // method to delete an item from an array in a particular index
+  delete(index) {
+    const item = this.data[index];
+    this.shiftItems(index);
+    return item;
+  }
+
+  // method to shift the items of the array to the right
+  shiftItems(index) {
+    for(let i = index; i < this.length-1; i++) {
+      this.data[i] = this.data[i + 1];
+    }
+    delete this.data[this.length - 1];
+    this.length--;
+  }
 }
