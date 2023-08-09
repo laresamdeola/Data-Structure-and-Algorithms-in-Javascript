@@ -32,7 +32,7 @@ class HashTable {
     let current = this.data[address];
     if(current) {
       for(let i = 0; i < current.length; i++) {
-        if(current[i][0] === key) {
+        if(curent[i][0] === key) {
           return current[i][1]
         }
       }
@@ -45,5 +45,4 @@ const myHashTable = new HashTable(50);
 myHashTable.set('grapes', 10000)
 myHashTable.get('grapes')
 myHashTable.set('apples', 9)
-console.log(myHashTable.get('apples'));
-console.log(myHashTable);
+myHashTable.get('apples')
