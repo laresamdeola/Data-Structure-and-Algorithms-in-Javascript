@@ -23,7 +23,7 @@ class Array {
 
   // method to add new item to the array
   push(value) {
-    this.data[this.length - 1] = value;
+    this.data[this.length] = value;
     this.length++;
     return this;
   }

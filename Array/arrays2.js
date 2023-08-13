@@ -11,7 +11,7 @@ class Array {
 
   // method to push elements into array
   push(item) {
-    this.data[this.length-1] = item;
+    this.data[this.length] = item;
     this.length++;
     return this.length;
   }

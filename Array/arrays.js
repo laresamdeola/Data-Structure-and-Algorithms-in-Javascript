@@ -13,7 +13,7 @@ class Array {
 
   // method to add elements at the end of the array
   push(item) {
-    this.data[this.length-1] = item;
+    this.data[this.length] = item;
     this.length++;
     return item;
   }
