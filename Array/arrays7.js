@@ -31,7 +31,7 @@ class Array {
   // method to add elements to the beginning of the array
   shift(value) {
     this.data[0] = value;
-    shiftItems(value);
+    this.shiftItems(value);
     this.length++;
     return this;
   }

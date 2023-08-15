@@ -31,7 +31,7 @@ class Array {
   // method to delete an item from the array
   delete(index) {
     delete this.data[index];
-    shiftItems(index);
+    this.shiftItems(index);
     this.length--;
     return this;
   }

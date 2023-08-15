@@ -39,7 +39,7 @@ class Arrays {
   }
 
   shiftItems(index) {
-    for(let i = 0; i < this.length; i++) {
+    for(let i = index; i < this.length; i++) {
       this.data[i] = this.data[i + 1];
     }
     delete this.data[this.length - 1];
