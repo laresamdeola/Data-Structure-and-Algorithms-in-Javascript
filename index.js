@@ -4,38 +4,37 @@ class Array {
     this.length = 0;
   }
 
-  //method to access array elements
+  // method to access array elements
   get(index) {
     return this.data[index];
   }
 
-  //method to remove last element in the array
+  // method to remove the last element in an array
   pop() {
     const lastItem = this.data[this.length - 1];
     delete this.data[this.length - 1];
     this.length--;
-    return this;
+    return lastItem;
   }
 
-  // method to add item to the end of the list
+  // method to insert an element into the last index in an array
   push(value) {
     this.data[this.length] = value;
     this.length++;
     return this;
   }
 
-  // delete an item at any index in the array
+  // method to delete an element at any index in the array
   delete(index) {
-    //this.data[index] = item;
-    const item = this.data[index];
     delete this.data[index];
     this.shiftItems(index);
     this.length--;
-    return item;
+    return this;
   }
 
+  // the method to move array elements to the right
   shiftItems(index) {
-    for (let i = index; i < this.length; i++) {
+    for(let i = index; i < this.length; i++) {
       this.data[i] = this.data[i + 1];
     }
     delete this.data[this.length - 1];
@@ -50,5 +49,5 @@ newArray9.push(256);
 //console.log(newArray9);
 //newArray9.delete(1);
 console.log(newArray9);
-newArray9.delete(3);
+newArray9.pop();
 console.log(newArray9)
