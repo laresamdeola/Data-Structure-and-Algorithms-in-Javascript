@@ -6,16 +6,10 @@ class Array {
 
   // method to access array elements
   get(index) {
-    try {
-      if(index <= this.length) {
-        return this.data[index];
-      } 
-    } catch(error) {
-      console.log(error);
-    }
+    return this.data[index];
   }
 
-  // method to delete last item in array
+  // method to delete the last element in the array
   pop() {
     const lastItem = this.data[this.length - 1];
     delete this.data[this.length - 1];
@@ -23,14 +17,14 @@ class Array {
     return this;
   }
 
-  // method to add an element to the end of the array
+  // method to add element to the ened of the array
   push(value) {
     this.data[this.length] = value;
     this.length++;
     return this;
   }
 
-  // method to delete an element from any index in array
+  // method to delete an element from an array
   delete(index) {
     delete this.data[index];
     this.shiftItems(index);
@@ -38,7 +32,7 @@ class Array {
     return this;
   }
 
-  // create a method to move array elements to the right when an element is deleted
+  // create the method to shift array elements to the right
   shiftItems(index) {
     for (let i = index; i < this.length; i++) {
       this.data[i] = this.data[i + 1];
@@ -50,6 +44,10 @@ class Array {
 const newArray9 = new Array();
 newArray9.push(2);
 newArray9.push(4);
+newArray9.push(28);
+newArray9.push(49);
+newArray9.push(234);
+newArray9.push(454);
 console.log(newArray9);
 newArray9.push(89);
 newArray9.delete(1);
