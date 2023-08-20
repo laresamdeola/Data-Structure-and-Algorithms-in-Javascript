@@ -1,57 +1,49 @@
-class Array {
-  constructor() {
-    this.data = {};
-    this.length = 0;
-  }
-
-  // method to access array elements
-  get(index) {
-    return this.data[index];
-  }
-
-  // method to delete the last element in the array
-  pop() {
-    const lastItem = this.data[this.length - 1];
-    delete this.data[this.length - 1];
-    this.length--;
-    return this;
-  }
-
-  // method to add element to the ened of the array
-  push(value) {
-    this.data[this.length] = value;
-    this.length++;
-    return this;
-  }
-
-  // method to delete an element from an array
-  delete(index) {
-    delete this.data[index];
-    this.shiftItems(index);
-    this.length--;
-    return this;
-  }
-
-  // create the method to shift array elements to the right
-  shiftItems(index) {
-    for (let i = index; i < this.length; i++) {
-      this.data[i] = this.data[i + 1];
+class HashTable {
+  constructor(size) {
+    if(size) {
+      this.data = new Array(size);
+    } else {
+      this.data = new Array();
     }
-    delete this.data[this.length - 1];
+  }
+
+  // create a hash function
+  _hash(key) {
+    let hash = 0;
+    for (let i = 0; i < key.length; i++) {
+      hash = (hash + key.charCodeAt(i) * i) % this.data.length;
+    }
+    return hash;
+  }
+
+  // create a set method to set the key - value pairs
+  set(key, value) {
+    let address = this._hash(key);
+    if(!this.data[address]) {
+      this.data[address] = [];
+    }
+    this.data[address].push([key, value]);
+    return this;
+  }
+
+  // create a get method
+  get(key) {
+    let address = this._hash(key);
+    let currentBucket = this.data[address];
+    if(currentBucket) {
+      for (let i = 0; i < currentBucket.length; i++) {
+        if(currentBucket[i][0] === key) {
+          return currentBucket[i][1];
+        }
+      }
+    }
+    return undefined;
   }
 }
 
-const newArray9 = new Array();
-newArray9.push(2);
-newArray9.push(4);
-newArray9.push(28);
-newArray9.push(49);
-newArray9.push(234);
-newArray9.push(454);
-console.log(newArray9);
-newArray9.push(89);
-newArray9.delete(1);
-//console.log(newArray9.get(3));
-console.log(newArray9);
-//newArray9.pop();
-//console.log(newArray9)
+const myHashTable = new HashTable(50);
+myHashTable.set('grapes', 10000)
+myHashTable.get('grapes')
+myHashTable.set('apples', 9)
+console.log(myHashTable._hash('apples'))
+console.log(myHashTable)
