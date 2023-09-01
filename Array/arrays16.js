@@ -16,4 +16,11 @@ class Array {
     this.length--;
     return this;
   }
+
+  // method to add an item to the array
+  push(value){
+    this.data[this.length] = value;
+    this.length++;
+    return this;
+  }
 }
