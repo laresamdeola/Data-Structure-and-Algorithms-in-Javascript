@@ -23,4 +23,19 @@ class Array {
     this.length++;
     return this;
   }
+
+  // method to delete value from array
+  delete(index){
+    delete this.data[index];
+    this.shiftItems(index);
+    this.length--;
+    return this;
+  }
+
+  shiftItems(index){
+    for (let i = index; i < this.length; i++){
+      this.data[i] = this.data[ i + 1];
+    }
+    delete this.data[this.length - 1];
+  }
 }
